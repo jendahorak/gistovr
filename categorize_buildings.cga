@@ -1,0 +1,28 @@
+/**
+ * File:    shape_to_model_extended.cga
+ * Created: 1 Nov 2023 09:47:01 GMT
+ * Author:  jhorak
+ */
+version "2023.0"
+
+
+# @Order(3) @Enum("svisla_stena","vodorovna_strecha","sikma_strecha")
+@Order(1) @Enum("co", "pk", "sk")
+attr typeFlag = ""
+
+attr colorCategory_co = ""
+attr colorCategory_pk = ""
+attr colorCategory_sk = ""
+
+attr colorValue_co = ""
+attr colorValue_pk = ""
+attr colorValue_sk = ""
+
+Initial -->
+
+      case typeFlag == "co" : set(material.name, colorCategory_co) color(colorValue_co) ColoredShape.
+      case typeFlag == "pk" : set(material.name, colorCategory_pk) color(colorValue_pk) ColoredShape.
+      case typeFlag == "sk" : set(material.name, colorCategory_sk) color(colorValue_sk) ColoredShape.
+      else : NIL
+
+
